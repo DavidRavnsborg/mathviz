@@ -1,0 +1,10 @@
+# Manim installed/cached files
+/ffmpeg
+/media
+
+# Cached Python files
+__pycache__
+
+# Specific files
+AnimateParametricFunctionScratchpad.py
+PlotParametricFunction.py
