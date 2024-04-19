@@ -1,4 +1,5 @@
 from manim import *
+from manim.utils.file_ops import open_file as open_media_file
 
 
 class AnimateParametricFunctionScratchPad(ThreeDScene):
@@ -24,3 +25,11 @@ class AnimateParametricFunctionScratchPad(ThreeDScene):
         self.play(Create(surface), run_time=10)
         # Number of seconds to wait after animation.
         self.wait(2)
+
+
+if __name__ == "__main__":
+    scene = AnimateParametricFunctionScratchPad()
+    scene.render()  # That's it!
+
+    # Now, open the .mp4 file!
+    open_media_file(scene.renderer.file_writer.movie_file_path)
