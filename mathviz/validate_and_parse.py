@@ -6,10 +6,9 @@ from sympy import sympify, SympifyError
 def validate_and_parse(input_expr):
     """Validates that input strings are valid mathematical expressions.
 
-    NOTE: This is sufficient for personal use, but is only a starting point for hosted applications
+    .. warning:: This is sufficient for personal use, but is only a starting point for hosted applications
     that accept 3rd-party input. Any such application requires additional string sanitization to
-    mitigate the potential for injection attacks.
-    NOTE 2: sympify uses "eval" which can potentially be especially dangerous if accepting 3rd party
+    mitigate the potential for injection attacks. sympify uses "eval" which can potentially be especially dangerous if accepting 3rd party
     input, see: https://github.com/sympy/sympy/issues/10805
     """
 
