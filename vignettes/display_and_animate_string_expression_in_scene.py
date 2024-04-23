@@ -1,12 +1,12 @@
 from .context import mathviz
 from mathviz.validate_and_parse import validate_and_parse
-from manim import Scene, MathTex, ParametricFunction, Write, Axes, RED
+from manim import Scene, ThreeDScene, MathTex, ParametricFunction, Write, Axes, RED
 from manim.utils.file_ops import open_file as open_media_file
 import numpy as np
 from sympy import symbols, lambdify, sympify
 
 
-class MathExpressionScene(Scene):
+class MathExpressionScene(ThreeDScene):
     def construct(self):
         input_expr = "t**2 + 3*t + 1"  # Example user-provided expression
 
