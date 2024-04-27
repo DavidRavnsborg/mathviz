@@ -1,5 +1,14 @@
 from mathviz.validate_and_parse import validate_and_parse
-from manim import Scene, ThreeDScene, MathTex, ParametricFunction, Write, Axes, RED
+from manim import (
+    ThreeDAxes,
+    ThreeDScene,
+    MathTex,
+    ParametricFunction,
+    Write,
+    RED,
+    BLUE,
+    WHITE,
+)
 from manim.utils.file_ops import open_file as open_media_file
 import numpy as np
 from sympy import symbols, lambdify
@@ -19,10 +28,11 @@ class MathExpressionScene(ThreeDScene):
         super().__init__()
 
     def construct(self):
-        """Called from self.render."""
         indepedent_var = symbols(self.input_expressions[0]["symbol"])
         funcs = []
-        self.add(self.get_axes())
+
+        axes = self.get_axes()
+        self.add(axes)
         for input_expr in self.input_expressions[1:]:
             # Parse the expression using sympy
             sympy_expr = validate_and_parse(input_expr["expression"])
@@ -33,19 +43,20 @@ class MathExpressionScene(ThreeDScene):
             math_expr = MathTex(input_expr["expression"].replace("**", "^"))
             # math_expr.to_edge(UP)
             self.play(Write(math_expr))
-        curve = ParametricFunction(
+        curve = axes.plot_parametric_curve(
             function=self.get_parametric_lambda(funcs),
             t_range=[
                 self.input_expressions[0]["domain"][0],
                 self.input_expressions[0]["domain"][1],
             ],
-            color=RED,  # Define the range of t
+            color=RED,
         )
-        self.play(Write(curve))
+        self.play(Write(curve), run_time=5)
         self.wait(2)
 
     def get_parametric_lambda(self, funcs):
-        """Returns a function with the appropriate argument length. i is the independent variable."""
+        """Returns a function with the appropriate number of dimensions. i is the independent
+        variable in the first dimension (the canonical indepdent/x-axis)."""
         if len(funcs) == 1:
             return lambda i: np.array([i, funcs[0](i), 0])
         elif len(funcs) == 2:
@@ -55,17 +66,17 @@ class MathExpressionScene(ThreeDScene):
 
     def get_axes(self):
         if len(self.input_expressions) == 2:
-            return Axes(
+            return ThreeDAxes(
                 x_range=self.input_expressions[0]["domain"],
                 y_range=self.input_expressions[1]["range"],
-                # axis_config={"color": WHITE}
+                axis_config={"color": WHITE},
             )
         elif len(self.input_expressions) == 3:
-            return Axes(
+            return ThreeDAxes(
                 x_range=self.input_expressions[0]["domain"],
                 y_range=self.input_expressions[1]["range"],
                 z_range=self.input_expressions[2]["range"],
-                # axis_config={"color": WHITE}
+                axis_config={"color": WHITE},
             )
         else:
             raise NotImplementedError()
@@ -74,9 +85,8 @@ class MathExpressionScene(ThreeDScene):
 if __name__ == "__main__":
     scene = MathExpressionScene(
         input_expressions=(
-            {"symbol": "t", "expression": "t=t", "domain": [-10, 10, 1]},
+            {"symbol": "t", "expression": "t=t", "domain": [-10, 15, 1]},
             {"symbol": "y", "expression": "(t - 2)^2 - 1", "range": [-10, 10, 1]},
-            # {"symbol": "y", "expression": "t**2 - 1"},
         )
     )
     scene.render()
