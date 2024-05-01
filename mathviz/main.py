@@ -1,11 +1,8 @@
 from mathviz.var_type import VarType
 from mathviz.animate_string_expression import MathExpressionScene
-from manim.utils.file_ops import open_file as open_media_file
 from nicegui import app, ui
-from nicegui.elements.table import Table
 from nicegui.events import ValueChangeEventArguments, GenericEventArguments
 from string import ascii_lowercase
-from sympy.parsing.sympy_parser import parse_expr
 from uuid import uuid4
 
 
