@@ -161,18 +161,29 @@ async def index():
             )
             ui.button("Render animation", on_click=submit)
         with splitter.after:
-            animation_source = app.storage.user.get("animation_path_active")
-            if animation_source is None:
-                animation_source = app.storage.general.get("animation_paths")[0]
-            if animation_source is None:
-                ui.label("No cached animations to display.")
-            else:
-                video = ui.video().bind_source_from(
-                    app.storage.user, "animation_path_active"
+            # Assume that this object exists (responsibility is on the loading page to ensure it is
+            # set), but it may be empty.
+            animation_paths = app.storage.general.get("animation_paths")
+            if len(animation_paths) == 0:
+                ui.label("No cached animations to display.").tailwind(
+                    "flex",
+                    # Vertical centering
+                    "h-screen",
+                    "items-center",
+                    # Horizontal centering
+                    "justify-center",
+                    "w-1/2",
                 )
-                video.on(
-                    "ended", lambda _: emit_notification("Video playback completed")
-                )
+                return
+
+            active_animation_path = app.storage.user["animation_path_active"]
+            if active_animation_path is None:
+                active_animation_path = animation_paths[0]
+            video = ui.video(active_animation_path).bind_source_from(
+                app.storage.user, "animation_path_active"
+            )
+            video.on("ended", lambda _: emit_notification("Video playback completed"))
+
 
 
 @ui.page("/animation_paths")
