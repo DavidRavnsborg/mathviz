@@ -57,8 +57,9 @@ def submit(event: ValueChangeEventArguments):
     )
     ui.notify("Rendering MP4 file...")
     scene.render()
-    ui.notify("Opening MP4 file.")
-    open_media_file(scene.renderer.file_writer.movie_file_path)
+    # open_media_file(scene.renderer.file_writer.movie_file_path)
+    # TODO: Make movie_path a dictionary, and the rightside movie pane tabbed.
+    app.storage.user["movie_path"] = str(scene.renderer.file_writer.movie_file_path)
 
 
 def change_symbol(e: GenericEventArguments) -> None:
@@ -153,7 +154,7 @@ async def index():
         with splitter.after:
             video = ui.video(
                 "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"
-            )
+            ).bind_source_from(app.storage.user, "movie_path")
             video.on("ended", lambda _: ui.notify("Video playback completed"))
 
 
