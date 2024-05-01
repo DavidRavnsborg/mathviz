@@ -13,8 +13,6 @@ from uuid import uuid4
 
 
 def independent_var_row(default_value):
-    # with ui.row():
-    #     ui_var = ui.select(var_chars, value=default_value)  # , on_change=show)
     return {
         "id": str(uuid4()),
         "type": VarType.Independent,
@@ -25,9 +23,6 @@ def independent_var_row(default_value):
 
 
 def function_row(default_value):
-    # with ui.row():
-    #     ui_var = ui.select(var_chars, value=default_value)  # , on_change=show)
-    #     ui_input = ui.input("Function")
     return {
         "id": str(uuid4()),
         "type": VarType.Dependent,
