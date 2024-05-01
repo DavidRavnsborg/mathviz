@@ -161,6 +161,20 @@ async def index():
             video.on("ended", lambda _: emit_notification("Video playback completed"))
 
 
+@ui.page("/animation_paths")
+async def display_animation_paths():
+    animation_paths = app.storage.general.get("animation_paths")
+    ui.label(
+        f"{len(animation_paths)} animations"
+        if animation_paths is not None
+        else "`animation_paths` is not initialized."
+    )
+    ui.label(
+        animation_paths
+        if animation_paths is not None
+        else "No `animation_paths` stored."
+    )
+
 
 @ui.page("/animation_path_active")
 async def display_animation_paths():
