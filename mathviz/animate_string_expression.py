@@ -21,8 +21,10 @@ class MathExpressionScene(ThreeDScene):
 
     def __init__(self, input_expressions: Tuple[Mapping]):
         if len(input_expressions) < 2:
+            print(input_expressions)
             raise Exception("Not enough input expressions.")
         elif len(input_expressions) > 3:
+            print(input_expressions)
             raise Exception("Too many input expressions.")
         self.input_expressions = input_expressions
         super().__init__()
