@@ -53,8 +53,12 @@ async def submit(event: ValueChangeEventArguments):
     scene.render()
     emit_notification("Playing MP4 file.")
     # open_media_file(scene.renderer.file_writer.movie_file_path)
-    # TODO: Make movie_path a dictionary, and the rightside movie pane tabbed.
-    app.storage.user["movie_path"] = str(scene.renderer.file_writer.movie_file_path)
+    app.storage.general["animation_paths"].append(
+        str(scene.renderer.file_writer.movie_file_path)
+    )
+    app.storage.user["animation_path_active"] = str(
+        scene.renderer.file_writer.movie_file_path
+    )
 
 
 def change_symbol(e: GenericEventArguments) -> None:
@@ -155,10 +159,18 @@ async def index():
             )
             ui.button("Render animation", on_click=submit)
         with splitter.after:
-            video = ui.video(
-                "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"
-            ).bind_source_from(app.storage.user, "movie_path")
-            video.on("ended", lambda _: emit_notification("Video playback completed"))
+            animation_source = app.storage.user.get("animation_path_active")
+            if animation_source is None:
+                animation_source = app.storage.general.get("animation_paths")[0]
+            if animation_source is None:
+                ui.label("No cached animations to display.")
+            else:
+                video = ui.video().bind_source_from(
+                    app.storage.user, "animation_path_active"
+                )
+                video.on(
+                    "ended", lambda _: emit_notification("Video playback completed")
+                )
 
 
 @ui.page("/animation_paths")
