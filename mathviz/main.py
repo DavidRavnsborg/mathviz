@@ -150,3 +150,5 @@ async def index():
                 ),
             )
             ui.button("Render animation", on_click=submit)
+
+ui.run(storage_secret="foobar")
