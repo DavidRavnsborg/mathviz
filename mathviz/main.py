@@ -41,6 +41,7 @@ def function_row(default_value):
 
 
 async def submit(event: ValueChangeEventArguments):
+    emit_notification("Analyzing math expression...")
     scene = MathExpressionScene(
         input_expressions=var_rows
         # (
@@ -53,8 +54,9 @@ async def submit(event: ValueChangeEventArguments):
         #     # {"symbol": "y", "expression": "t**2 - 1"},
         # )
     )
-    ui.notify("Rendering MP4 file...")
+    emit_notification("Rendering MP4 file...")
     scene.render()
+    emit_notification("Playing MP4 file.")
     # open_media_file(scene.renderer.file_writer.movie_file_path)
     # TODO: Make movie_path a dictionary, and the rightside movie pane tabbed.
     app.storage.user["movie_path"] = str(scene.renderer.file_writer.movie_file_path)
@@ -85,6 +87,14 @@ def get_unused_var_char(var_rows):
             if char == row["symbol"]:
                 continue
             return char
+
+
+def emit_notification(message: str):
+    print(message)
+    ui.notify(message)
+
+
+# Initial conditions
 
 
 var_chars = ["θ"] + list(ascii_lowercase)
