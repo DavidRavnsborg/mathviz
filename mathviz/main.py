@@ -40,10 +40,7 @@ def function_row(default_value):
 # Event handlers
 
 
-def submit(event: ValueChangeEventArguments):
-    name = type(event.sender).__name__
-    # ui.notify(f"{name}: {input1.value}")
-    ui.notify("Analyzing math expression...")
+async def submit(event: ValueChangeEventArguments):
     scene = MathExpressionScene(
         input_expressions=var_rows
         # (
