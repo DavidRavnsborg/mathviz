@@ -113,6 +113,8 @@ var_rows.append(function_row("y"))
 @ui.page("/")
 async def index():
     ui.label("Hello Mathviz!")
+    if app.storage.general.get("animation_paths") is None:
+        app.storage.general["animation_paths"] = []
     with ui.splitter() as splitter:
         splitter = splitter.classes("w-full")
         with splitter.before:
