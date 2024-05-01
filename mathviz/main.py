@@ -118,72 +118,77 @@ async def index():
     with ui.splitter() as splitter:
         splitter = splitter.classes("w-full")
         with splitter.before:
-            table = ui.table(columns=columns, rows=var_rows).classes("w-full")
-            table.add_slot(
-                "body-cell-symbol",
-                r'''
-                <q-td key="symbol" :props="props">
-                    <q-select
-                        v-model="props.row.symbol"
-                        :options="'''
-                + str(var_chars)
-                + r""""
-                        @update:model-value="() => $parent.$emit('change_symbol', props.row)"
-                    />
-                </q-td>
-            """,
-            )
-            table.on("change_symbol", change_symbol)
-            table.add_slot(
-                "body-cell-expression",
-                r"""
-                <q-td key="expression" :props="props">
-                    <q-input
-                        v-model="props.row.expression"
-                        @update:model-value="() => $parent.$emit('change_expression', props.row)"
-                    />
-                </q-td>
-            """,
-            )
-            table.on("change_expression", change_expression)
-            ui.button(
-                "+",
-                on_click=lambda: var_rows.append(
-                    function_row(default_value=get_unused_var_char(var_rows))
-                ),
-            )
-            ui.button(
-                "debug",
-                on_click=lambda: (
-                    print(var_rows),
-                    ui.notify(app.storage.user.get("movie_path")),
-                ),
-            )
-            ui.button("Render animation", on_click=submit)
+            interactive_panel()
         with splitter.after:
-            # Assume that this object exists (responsibility is on the loading page to ensure it is
-            # set), but it may be empty.
-            animation_paths = app.storage.general.get("animation_paths")
-            if len(animation_paths) == 0:
-                ui.label("No cached animations to display.").tailwind(
-                    "flex",
-                    # Vertical centering
-                    "h-screen",
-                    "items-center",
-                    # Horizontal centering
-                    "justify-center",
-                    "w-1/2",
-                )
-                return
+            video_panel()
 
-            active_animation_path = app.storage.user["animation_path_active"]
-            if active_animation_path is None:
-                active_animation_path = animation_paths[0]
-            video = ui.video(active_animation_path).bind_source_from(
-                app.storage.user, "animation_path_active"
-            )
-            video.on("ended", lambda _: emit_notification("Video playback completed"))
 
+def interactive_panel():
+    table = ui.table(columns=columns, rows=var_rows).classes("w-full")
+    table.add_slot(
+        "body-cell-symbol",
+        r'''
+        <q-td key="symbol" :props="props">
+            <q-select
+                v-model="props.row.symbol"
+                :options="'''
+        + str(var_chars)
+        + r""""
+                @update:model-value="() => $parent.$emit('change_symbol', props.row)"
+            />
+        </q-td>
+    """,
+    )
+    table.on("change_symbol", change_symbol)
+    table.add_slot(
+        "body-cell-expression",
+        r"""
+        <q-td key="expression" :props="props">
+            <q-input
+                v-model="props.row.expression"
+                @update:model-value="() => $parent.$emit('change_expression', props.row)"
+            />
+        </q-td>
+    """,
+    )
+    table.on("change_expression", change_expression)
+    ui.button(
+        "+",
+        on_click=lambda: var_rows.append(
+            function_row(default_value=get_unused_var_char(var_rows))
+        ),
+    )
+    ui.button(
+        "debug",
+        on_click=lambda: (
+            print(var_rows),
+            ui.notify(app.storage.user.get("movie_path")),
+        ),
+    )
+    ui.button("Render animation", on_click=submit)
+
+
+def video_panel():
+    animation_paths = app.storage.general.get("animation_paths")
+    if len(animation_paths) == 0:
+        ui.label("No cached animations to display.").tailwind(
+            "flex",
+            # Vertical centering
+            "h-screen",
+            "items-center",
+            # Horizontal centering
+            "justify-center",
+            "w-1/2",
+        )
+        return
+
+    active_animation_path = app.storage.user["animation_path_active"]
+    if active_animation_path is None:
+        active_animation_path = animation_paths[0]
+    video = ui.video(active_animation_path).bind_source_from(
+        app.storage.user, "animation_path_active"
+    )
+    video.on("ended", lambda _: emit_notification("Video playback completed"))
 
 
 @ui.page("/animation_paths")
