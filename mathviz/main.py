@@ -8,16 +8,32 @@ from sympy.parsing.sympy_parser import parse_expr
 from uuid import uuid4
 
 
-# Initial conditions
+# Data type creation
 
 
-var_chars = ["θ"] + list(ascii_lowercase)
-var_char_defaults = ("x", "y", "z")
-columns = [
-    {"name": "symbol", "label": "Symbol", "field": "symbol"},
-    {"name": "expression", "label": "Expression", "field": "expression"},
-]
-var_rows = []
+def independent_var_row(default_value):
+    # with ui.row():
+    #     ui_var = ui.select(var_chars, value=default_value)  # , on_change=show)
+    return {
+        "id": str(uuid4()),
+        "type": VarType.Independent,
+        "symbol": default_value,
+        "expression": "",  # f"{default_value}={default_value}",
+        "domain": [-10, 10, 1],
+    }
+
+
+def function_row(default_value):
+    # with ui.row():
+    #     ui_var = ui.select(var_chars, value=default_value)  # , on_change=show)
+    #     ui_input = ui.input("Function")
+    return {
+        "id": str(uuid4()),
+        "type": VarType.Dependent,
+        "symbol": default_value,
+        "expression": "x^2 + 1",
+        "range": [-10, 10, 1],
+    }
 
 
 # Event handlers
@@ -72,76 +88,65 @@ def get_unused_var_char(var_rows):
             return char
 
 
-# Data type creation
-
-
-def independent_var_row(default_value):
-    # with ui.row():
-    #     ui_var = ui.select(var_chars, value=default_value)  # , on_change=show)
-    return {
-        "id": str(uuid4()),
-        "type": VarType.Independent,
-        "symbol": default_value,
-        "expression": "",  # f"{default_value}={default_value}",
-        "domain": [-10, 10, 1],
-    }
-
-
-def function_row(default_value):
-    # with ui.row():
-    #     ui_var = ui.select(var_chars, value=default_value)  # , on_change=show)
-    #     ui_input = ui.input("Function")
-    return {
-        "id": str(uuid4()),
-        "type": VarType.Dependent,
-        "symbol": default_value,
-        "expression": "x^2 + 1",
-        "range": [-10, 10, 1],
-    }
+var_chars = ["θ"] + list(ascii_lowercase)
+var_char_defaults = ("x", "y", "z")
+columns = [
+    {"name": "symbol", "label": "Symbol", "field": "symbol"},
+    {"name": "expression", "label": "Expression", "field": "expression"},
+]
+var_rows = []
+var_rows.append(independent_var_row("x"))
+var_rows.append(function_row("y"))
 
 
 # DOM
 
 
-ui.label("Hello Mathviz!")
-
-var_rows.append(independent_var_row("x"))
-var_rows.append(function_row("y"))
-table = ui.table(columns=columns, rows=var_rows).classes("w-1/2")
-table.add_slot(
-    "body-cell-symbol",
-    r'''
-    <q-td key="symbol" :props="props">
-        <q-select
-            v-model="props.row.symbol"
-            :options="'''
-    + str(var_chars)
-    + r""""
-            @update:model-value="() => $parent.$emit('change_symbol', props.row)"
-        />
-    </q-td>
-""",
-)
-table.on("change_symbol", change_symbol)
-table.add_slot(
-    "body-cell-expression",
-    r"""
-    <q-td key="expression" :props="props">
-        <q-input
-            v-model="props.row.expression"
-            @update:model-value="() => $parent.$emit('change_expression', props.row)"
-        />
-    </q-td>
-""",
-)
-table.on("change_expression", change_expression)
-
-ui.button(
-    "+",
-    on_click=lambda: var_rows.append(
-        function_row(default_value=get_unused_var_char(var_rows))
-    ),
-)
-ui.button("debug", on_click=lambda: (print(var_rows), ui.notify(var_rows)))
-ui.button("Render animation", on_click=submit)
-ui.run()
+@ui.page("/")
+async def index():
+    ui.label("Hello Mathviz!")
+    with ui.splitter() as splitter:
+        splitter = splitter.classes("w-full")
+        with splitter.before:
+            table = ui.table(columns=columns, rows=var_rows).classes("w-full")
+            table.add_slot(
+                "body-cell-symbol",
+                r'''
+                <q-td key="symbol" :props="props">
+                    <q-select
+                        v-model="props.row.symbol"
+                        :options="'''
+                + str(var_chars)
+                + r""""
+                        @update:model-value="() => $parent.$emit('change_symbol', props.row)"
+                    />
+                </q-td>
+            """,
+            )
+            table.on("change_symbol", change_symbol)
+            table.add_slot(
+                "body-cell-expression",
+                r"""
+                <q-td key="expression" :props="props">
+                    <q-input
+                        v-model="props.row.expression"
+                        @update:model-value="() => $parent.$emit('change_expression', props.row)"
+                    />
+                </q-td>
+            """,
+            )
+            table.on("change_expression", change_expression)
+            ui.button(
+                "+",
+                on_click=lambda: var_rows.append(
+                    function_row(default_value=get_unused_var_char(var_rows))
+                ),
+            )
+            ui.button(
+                "debug",
+                on_click=lambda: (
+                    print(var_rows),
+                    ui.notify(app.storage.user.get("movie_path")),
+                ),
+            )
+            ui.button("Render animation", on_click=submit)
