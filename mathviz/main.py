@@ -161,4 +161,15 @@ async def index():
             video.on("ended", lambda _: emit_notification("Video playback completed"))
 
 
+
+@ui.page("/animation_path_active")
+async def display_animation_paths():
+    animation_path_active = app.storage.user.get("animation_path_active")
+    ui.label(
+        animation_path_active
+        if animation_path_active is not None
+        else "No `animation_path_active` associated with this user/cookie."
+    )
+
+
 ui.run(storage_secret="foobar")
