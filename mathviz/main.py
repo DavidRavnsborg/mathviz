@@ -158,7 +158,7 @@ async def index():
             video = ui.video(
                 "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"
             ).bind_source_from(app.storage.user, "movie_path")
-            video.on("ended", lambda _: ui.notify("Video playback completed"))
+            video.on("ended", lambda _: emit_notification("Video playback completed"))
 
 
 ui.run(storage_secret="foobar")
