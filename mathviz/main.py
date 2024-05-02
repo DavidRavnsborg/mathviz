@@ -1,3 +1,4 @@
+from mathviz.hashing import input_expression_hash
 from mathviz.var_type import VarType
 from mathviz.animate_string_expression import MathExpressionScene
 from nicegui import app, ui
@@ -34,28 +35,18 @@ def function_row(default_value):
 
 async def submit(event: ValueChangeEventArguments):
     emit_notification("Analyzing math expression...")
-    scene = MathExpressionScene(
-        input_expressions=var_rows
-        # (
-        #     {"symbol": "t", "expression": "t=t", "domain": [-10, 10, 1]},
-        #     {
-        #         "symbol": ui_var1.value,
-        #         "expression": ui_input1.value,
-        #         "range": [-10, 10, 1],
-        #     },
-        #     # {"symbol": "y", "expression": "t**2 - 1"},
-        # )
-    )
+    input_expressions = var_rows
+    uid = input_expression_hash(input_expressions)
+    scene = MathExpressionScene(input_expressions=input_expressions, uid=uid)
     emit_notification("Rendering MP4 file...")
     scene.render()
     emit_notification("Playing MP4 file.")
     # open_media_file(scene.renderer.file_writer.movie_file_path)
-    app.storage.general["animation_paths"].append(
-        str(scene.renderer.file_writer.movie_file_path)
-    )
-    app.storage.user["animation_path_active"] = str(
-        scene.renderer.file_writer.movie_file_path
-    )
+    app.storage.general["animations"][uid] = {
+        "path": str(scene.renderer.file_writer.movie_file_path),
+        "input_expressions": input_expressions,
+    }
+    app.storage.user["animation_active"] = uid
 
 
 def change_symbol(e: GenericEventArguments) -> None:
@@ -110,8 +101,8 @@ var_rows.append(function_row("y"))
 @ui.page("/")
 async def index():
     ui.label("Hello Mathviz!")
-    if app.storage.general.get("animation_paths") is None:
-        app.storage.general["animation_paths"] = []
+    if app.storage.general.get("animations") is None:
+        app.storage.general["animations"] = {}
     with ui.splitter() as splitter:
         splitter = splitter.classes("w-full")
         with splitter.before:
@@ -166,8 +157,8 @@ def interactive_panel():
 
 
 def video_panel():
-    animation_paths = app.storage.general.get("animation_paths")
-    if len(animation_paths) == 0:
+    animations = app.storage.general.get("animations")
+    if len(animations) == 0:
         ui.label("No cached animations to display.").tailwind(
             "flex",
             # Vertical centering
@@ -179,37 +170,36 @@ def video_panel():
         )
         return
 
-    active_animation_path = app.storage.user["animation_path_active"]
-    if active_animation_path is None:
-        active_animation_path = animation_paths[0]
-    video = ui.video(active_animation_path).bind_source_from(
+    uid = app.storage.user["animation_active"]
+    if uid is None:
+        active_animation = list(app.storage.general["animations"].values())[0]
+    else:
+        active_animation = animations[uid]
+
+    video = ui.video(active_animation["path"]).bind_source_from(
         app.storage.user, "animation_path_active"
     )
     video.on("ended", lambda _: emit_notification("Video playback completed"))
 
 
-@ui.page("/animation_paths")
-async def display_animation_paths():
-    animation_paths = app.storage.general.get("animation_paths")
+@ui.page("/animations")
+async def animations():
+    animations = app.storage.general.get("animations")
     ui.label(
-        f"{len(animation_paths)} animations"
-        if animation_paths is not None
-        else "`animation_paths` is not initialized."
+        f"{len(animations)} animations"
+        if animations is not None
+        else "`animations` is not initialized."
     )
-    ui.label(
-        animation_paths
-        if animation_paths is not None
-        else "No `animation_paths` stored."
-    )
+    ui.label(animations if animations is not None else "No `animations` stored.")
 
 
-@ui.page("/animation_path_active")
-async def display_animation_paths():
-    animation_path_active = app.storage.user.get("animation_path_active")
+@ui.page("/animation_active")
+async def animation_active():
+    animation_active = app.storage.user.get("animation_active")
     ui.label(
-        animation_path_active
-        if animation_path_active is not None
-        else "No `animation_path_active` associated with this user/cookie."
+        animation_active
+        if animation_active is not None
+        else "No `animation_active` associated with this user/cookie."
     )
 
 

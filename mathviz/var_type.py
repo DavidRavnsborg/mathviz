@@ -1,6 +1,6 @@
-from enum import Enum
+from enum import IntEnum
 
 
-class VarType(Enum):
+class VarType(IntEnum):
     Independent = 1
     Dependent = 2
