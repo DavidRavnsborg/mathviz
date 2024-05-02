@@ -190,7 +190,7 @@ async def animations():
         if animations is not None
         else "`animations` is not initialized."
     )
-    ui.label(animations if animations is not None else "No `animations` stored.")
+    ui.label(str(animations) if animations is not None else "No `animations` stored.")
 
 
 @ui.page("/animation_active")
