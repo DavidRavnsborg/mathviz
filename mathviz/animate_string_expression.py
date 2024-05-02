@@ -1,9 +1,9 @@
 from mathviz.validate_and_parse import validate_and_parse
 from manim import (
+    config,
     ThreeDAxes,
     ThreeDScene,
     MathTex,
-    ParametricFunction,
     Write,
     RED,
     BLUE,
@@ -19,7 +19,7 @@ class MathExpressionScene(ThreeDScene):
     """Take a text expression, converts it to a sympify expression, converts that to a function,
     and renders it with manim."""
 
-    def __init__(self, input_expressions: Tuple[Mapping]):
+    def __init__(self, input_expressions: Tuple[Mapping], uid: str):
         if len(input_expressions) < 2:
             print(input_expressions)
             raise Exception("Not enough input expressions.")
@@ -27,6 +27,7 @@ class MathExpressionScene(ThreeDScene):
             print(input_expressions)
             raise Exception("Too many input expressions.")
         self.input_expressions = input_expressions
+        config.output_file = uid
         super().__init__()
 
     def construct(self):
