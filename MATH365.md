@@ -102,36 +102,28 @@ $$
 </tr>
 </table>
 
-<h4 style="margin: 0;">2D Conics</h4>
+<h4 style="margin: 0;">2D Conics (swap x and y if major axis is flipped)</h4>
 <!-- The blank rows in each <td> block, and lack of indents inside the table HTML, are so the KaTeX parser doesn't break while parsing formulas inside the $$ signs, as discovered through trial and error. -->
 <table style="width: 100%; text-align: left;">
 <tr>
 <td style="vertical-align: top;">
 
 $$
-Foci: \left(x_o±\dfrac{Δf}{2}, y_0\right) \\[0.3cm]
-Vertices: \left(x_o±\dfrac{Δf}{2}, y_0\right) \\[0.3cm]
-Parabola: 
-$$
-</td>
-<td style="vertical-align: top;">
-
-$$
 Ellipse: \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = \dfrac{(x-x_0)^2}{\left(\dfrac{Δv}{2}\right)^2 - \left(\dfrac{Δf}{2}\right)^2} + \dfrac{(y-y_0)^2}{\left(\dfrac{Δv}{2}\right)^2} = 1 \\[0.3cm]
 Hyperbola: \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = \dfrac{(x-x_0)^2}{2(Δv)^2} + \dfrac{(y-y_0)^2}{\left(\dfrac{Δf}{2}\right)^2 - 2(Δv)^2} = 1 \\[0.3cm]
+Foci: \left(x_o±\dfrac{Δf}{2}, y_0\right)
+Vertices: \left(x_o±\dfrac{Δf}{2}, y_0\right) \\[0.3cm]
 
 $$
 </td>
 <td style="vertical-align: top;">
 
 $$
-
-$$
-</td>
-<td style="vertical-align: top;">
-
-$$
-
+ 
+(Ellipse) \hspace{0.55cm}a ≥ b > 0 \\[0.3cm]
+Parabola: (y-y_0)=a(x-x_0)^2=\dfrac{(x-x_0)^2}{4p} \\[0.3cm]
+Focus: (x_0, y_0 + p) \\[0.3cm]
+Directrix: y = y_0 - p
 $$
 </td>
 </tr>
