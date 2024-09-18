@@ -103,6 +103,9 @@ $$
 </table>
 
 <h4 style="margin: 0;">2D Conics (swap x and y if major axis is flipped)</h4>
+<h3 style="margin: 0;">Should I keep it as a and b and just define the foci/vertices for ellipses/hyperbolas independently?</h3>
+<h3 style="margin: 0;">Ellipses need asymptotes anyway. Also, I believe my hyperbola definition does not match the textbook (I had thought I refined it such that it was valid, but it does not appear to be correct... maybe it was only correct on that particular problem and I was too exhausted/high at the time to attempt another).</h3>
+<h3 style="margin: 0;">Also, chapter 10.6 also uses a and b.</h3>
 <!-- The blank rows in each <td> block, and lack of indents inside the table HTML, are so the KaTeX parser doesn't break while parsing formulas inside the $$ signs, as discovered through trial and error. -->
 <table style="width: 100%; text-align: left;">
 <tr>
@@ -118,8 +121,7 @@ $$
 </td>
 <td style="vertical-align: top;">
 
-$$
- 
+$$ 
 (Ellipse) \hspace{0.55cm}a ≥ b > 0 \\[0.3cm]
 Parabola: (y-y_0)=a(x-x_0)^2=\dfrac{(x-x_0)^2}{4p} \\[0.3cm]
 Focus: (x_0, y_0 + p) \\[0.3cm]
@@ -128,6 +130,14 @@ $$
 </td>
 </tr>
 </table>
+<table>
+<tr>
+<td style="vertical-align: top;">
 
-
+$$
+Quadratic formula: x = \frac {-b \pm \sqrt{b^2 -4ac}} {2a}
+$$
+</table>
+</td>
+</tr>
 </div>
