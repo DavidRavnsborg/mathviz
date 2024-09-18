@@ -112,7 +112,7 @@ $$
 Ellipse: \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = \dfrac{(x-x_0)^2}{\left(\dfrac{Δv}{2}\right)^2} + \dfrac{(y-y_0)^2}{\left(\dfrac{Δv}{2}\right)^2 - \left(\dfrac{Δf}{2}\right)^2} = 1 \\[0.3cm]
 Hyperbola: \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = \dfrac{(x-x_0)^2}{2(Δv)^2} + \dfrac{(y-y_0)^2}{\left(\dfrac{Δf}{2}\right)^2 - 2(Δv)^2} = 1 \\[0.3cm]
 Foci: \left(x_o±\dfrac{Δf}{2}, y_0\right)
-Vertices: \left(x_o±\dfrac{Δf}{2}, y_0\right) \\[0.3cm]
+Vertices: \left(x_o±\dfrac{Δv}{2}, y_0\right) \\[0.3cm]
 
 $$
 </td>
