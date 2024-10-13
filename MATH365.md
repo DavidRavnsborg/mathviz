@@ -102,31 +102,128 @@ $$
 </tr>
 </table>
 
-<h4 style="margin: 0;">2D Conics (swap x and y if major axis is flipped)</h4>
-<h3 style="margin: 0;">Should I keep it as a and b and just define the foci/vertices for ellipses/hyperbolas independently?</h3>
-<h3 style="margin: 0;">Ellipses need asymptotes anyway. Also, I believe my hyperbola definition does not match the textbook (I had thought I refined it such that it was valid, but it does not appear to be correct... maybe it was only correct on that particular problem and I was too exhausted/high at the time to attempt another).</h3>
-<h3 style="margin: 0;">Also, chapter 10.6 also uses a and b.</h3>
-<!-- The blank rows in each <td> block, and lack of indents inside the table HTML, are so the KaTeX parser doesn't break while parsing formulas inside the $$ signs, as discovered through trial and error. -->
 <table style="width: 100%; text-align: left;">
 <tr>
 <td style="vertical-align: top;">
 
-$$
-Ellipse: \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = \dfrac{(x-x_0)^2}{\left(\dfrac{Δv}{2}\right)^2} + \dfrac{(y-y_0)^2}{\left(\dfrac{Δv}{2}\right)^2 - \left(\dfrac{Δf}{2}\right)^2} = 1 \\[0.3cm]
-Hyperbola: \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = \dfrac{(x-x_0)^2}{2(Δv)^2} + \dfrac{(y-y_0)^2}{\left(\dfrac{Δf}{2}\right)^2 - 2(Δv)^2} = 1 \\[0.3cm]
-Foci: \left(x_o±\dfrac{Δf}{2}, y_0\right)
-Vertices: \left(x_o±\dfrac{Δv}{2}, y_0\right) \\[0.3cm]
-
-$$
+</td>
+<td style="vertical-align: top;">
+Ellipse
+</td>
+<td style="vertical-align: top;">
+Parabola
+</td>
+<td style="vertical-align: top;">
+Hyperbola
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+Formulae
 </td>
 <td style="vertical-align: top;">
 
 $$ 
-(Ellipse) \hspace{0.55cm}a ≥ b > 0 \\[0.3cm]
-Parabola: (y-y_0)=a(x-x_0)^2=\dfrac{(x-x_0)^2}{4p} \\[0.3cm]
-Focus: (x_0, y_0 + p) \\[0.3cm]
-Directrix: y = y_0 - p
+\dfrac{(x-h)^2}{a^2} + \dfrac{(y-k)^2}{b^2} = 1 \\[0.3cm]
 $$
+</td>
+<td style="vertical-align: top;">
+
+$$
+(y-k)^2=4p(x-h) \\[0.3cm]
+$$
+</td>
+<td style="vertical-align: top;">
+
+$$
+\dfrac{(x-h)^2}{a^2} - \dfrac{(y-k)^2}{b^2} = 1 \\[0.3cm]
+$$
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+Foci
+</td>
+<td style="vertical-align: top;">
+
+$$
+(h±c, k)
+$$
+</td>
+<td style="vertical-align: top;">
+
+$$
+(h+p, k), p=-d
+$$
+</td>
+<td style="vertical-align: top;">
+
+$$
+(h±c, k)
+$$
+</td>
+</tr>
+<td style="vertical-align: top;">
+Vertices
+</td>
+<td style="vertical-align: top;">
+
+$$
+(h±a, k)
+$$
+</td>
+<td style="vertical-align: top;">
+
+$$
+(h, k)
+$$
+</td>
+<td style="vertical-align: top;">
+
+$$
+(h±a, k)
+$$
+</td>
+</tr>
+</table>
+
+<table style="width: 100%; text-align: left;">
+<tr>
+
+$$
+Polar form (opens left/right/down/up): r = \dfrac{ed}{1+ecos(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1+ecos(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1+esin(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1-esin(θ)}
+$$
+</tr>
+</table>
+<table>
+<tr>
+<td style="vertical-align: top;">
+
+$$
+Eccentricity: e = \dfrac{c}{a}
+$$
+</td>
+<td style="vertical-align: top;">
+
+$$
+h = -\dfrac{e^2d}{1-e^2}
+$$
+</td>
+<td style="vertical-align: top;">
+
+$$
+a^2 = \dfrac{e^2d^2}{(1-e^2)^2}
+$$
+</td>
+<td style="vertical-align: top;">
+
+$$
+b^2 = \dfrac{e^2d^2}{1-e^2}
+$$
+</td>
+<td style="vertical-align: top;">
+
+NOTE: This $b^2 $ is the negative of {b^2} in the hyperbola formula above, since it naturally gives a negative when e>1.
 </td>
 </tr>
 </table>
