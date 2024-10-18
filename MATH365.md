@@ -147,19 +147,19 @@ Foci
 <td style="vertical-align: top;">
 
 $$
-(h±c, k)
+(h±c, k), \hspace{5pt} a^2 - b^2 = c^2
 $$
 </td>
 <td style="vertical-align: top;">
 
 $$
-(h+p, k), p=-d
+(h+p, k), \hspace{5pt} p=-d
 $$
 </td>
 <td style="vertical-align: top;">
 
 $$
-(h±c, k)
+(h±c, k), \hspace{5pt} a^2 + b^2 = c^2
 $$
 </td>
 </tr>
