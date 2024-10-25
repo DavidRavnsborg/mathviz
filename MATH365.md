@@ -212,7 +212,7 @@ $$
 <tr>
 
 $$
-Polar form (opens left/right/down/up): r = \dfrac{ed}{1+ecos(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1+ecos(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1+esin(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1-esin(θ)}
+Polar form (opens left/right/down/up): r = \dfrac{ed}{1 + ecos(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1 - ecos(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1 + esin(θ)} \hspace{5pt} / \hspace{5pt} r = \dfrac{ed}{1 - esin(θ)}
 $$
 </tr>
 </table>
