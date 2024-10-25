@@ -221,7 +221,7 @@ $$
 <td style="vertical-align: top;">
 
 $$
-Eccentricity: e = \dfrac{c}{a}
+Eccentricity: \dfrac{c}{a} = e = \dfrac{a}{d}
 $$
 </td>
 <td style="vertical-align: top;">
