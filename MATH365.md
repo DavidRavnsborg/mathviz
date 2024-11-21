@@ -111,7 +111,7 @@ $$
 $$
 L = \int_{α}^{β} \sqrt{\left(\dfrac{dx}{dt}\right)^2 + \left(\dfrac{dy}{dt}\right)^2} \ dt = \int_{a}^{b} \sqrt{1 + \left(\dfrac{dy}{dx}\right)^2} \ dx = \int_{A}^{B} \sqrt{r^2 + \left(\dfrac{dr}{dθ}\right)^2} \ dθ \\[0.3cm]
 
-T(t) = \dfrac{r'(t)}{\left\Vert r'(t) \right\Vert} \hspace{5pt} K =  \left\Vert \dfrac{dT}{ds} \right\Vert = \left\Vert T'(s) \right\Vert = \dfrac{\left\Vert T'(t) \right\Vert}{\left\Vert r'(t) \right\Vert} = \dfrac{\left\Vert r'(t) \times r''(t) \right\Vert}{\left\Vert r'(t) \right\Vert ^3} 
+T(t) = \dfrac{r'(t)}{\left\Vert r'(t) \right\Vert} \hspace{5pt} K = \left\Vert \dfrac{dT}{ds} \right\Vert = \left\Vert T'(s) \right\Vert = \dfrac{\left\Vert T'(t) \right\Vert}{\left\Vert r'(t) \right\Vert} = \dfrac{\left\Vert r'(t) \times r''(t) \right\Vert}{\left\Vert r'(t) \right\Vert ^3} = \dfrac{\left\Vert f''(x) \right\Vert}{(1 + f'(x)^2)^\frac{3}{2}} 
 $$
 </td>
 <td style="vertical-align: top;">
