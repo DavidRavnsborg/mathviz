@@ -113,7 +113,8 @@ L = \int_{α}^{β} \sqrt{\left(\dfrac{dx}{dt}\right)^2 + \left(\dfrac{dy}{dt}\ri
 
 T(t) = \dfrac{r'(t)}{\left\Vert r'(t) \right\Vert} \hspace{5pt} K = \left\Vert T'(s) \right\Vert = \dfrac{\left\Vert T'(t) \right\Vert}{\left\Vert r'(t) \right\Vert} = \dfrac{\left\Vert r'(t) \times r''(t) \right\Vert}{\left\Vert r'(t) \right\Vert ^3} = \dfrac{\left\vert f''(x) \right\vert}{(1 + f'(x)^2)^\frac{3}{2}} \\[0.3cm]
 
-N(t) = \dfrac{T'(t)}{\Vert T'(t) \Vert} \ B(t) = T(t) \times N(t)
+N(t) = \dfrac{T'(t)}{\Vert T'(t) \Vert} \hspace{5pt} B(t) = T(t) \times N(t) \hspace{5pt} h_{max} = \dfrac{v_0^2}{2g} = -\dfrac{g}{2}t^2+v_0t+h_0\\[0.3cm]
+
 
 $$
 </td>
