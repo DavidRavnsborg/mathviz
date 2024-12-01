@@ -123,7 +123,8 @@ $$
 $$
 A = \int_{α}^{β} y(t)x'(t) dt = \int_{a}^{b} y dx = \int_{A}^{B} \dfrac{1}{2}r^2 dθ \\[0.3cm]
 
-\dfrac{d^2y}{dx^2} = \dfrac{d}{dx} \left(\dfrac{dy}{dx} \right) = \dfrac{\dfrac{d}{dt} \left(\dfrac{dy}{dx} \right)}{\dfrac{dx}{dt}}
+\dfrac{d^2y}{dx^2} = \dfrac{d}{dx} \left(\dfrac{dy}{dx} \right) = \dfrac{\dfrac{d}{dt} \left(\dfrac{dy}{dx} \right)}{\dfrac{dx}{dt}} \\[0.3cm]
+a = -\dfrac{GMm}{r^3}r = -\dfrac{GMm}{r^2}u
 $$
 </td>
 </tr>
