@@ -115,7 +115,6 @@ T(t) = \dfrac{r'(t)}{\left\Vert r'(t) \right\Vert} \hspace{5pt} K = \left\Vert T
 
 N(t) = \dfrac{T'(t)}{\Vert T'(t) \Vert} \hspace{5pt} B(t) = T(t) \times N(t) \hspace{5pt} h_{max} = \dfrac{v_0^2}{2g} = -\dfrac{g}{2}t^2+v_0t+h_0\\[0.3cm]
 
-
 $$
 </td>
 <td style="vertical-align: top;">
@@ -125,6 +124,23 @@ A = \int_{α}^{β} y(t)x'(t) dt = \int_{a}^{b} y dx = \int_{A}^{B} \dfrac{1}{2}r
 
 \dfrac{d^2y}{dx^2} = \dfrac{d}{dx} \left(\dfrac{dy}{dx} \right) = \dfrac{\dfrac{d}{dt} \left(\dfrac{dy}{dx} \right)}{\dfrac{dx}{dt}} \\[0.3cm]
 a = -\dfrac{GMm}{r^3}r = -\dfrac{GMm}{r^2}u
+$$
+</td>
+</tr>
+</table>
+
+<h4 style="margin: 0;">Second Derivative Test</h4>
+<table style="width: 100%; text-align: left;">
+<tr style="text-align: left;">
+<td style="vertical-align: top;">
+
+$$
+D(a,b) = f_{xx}(a,b)f_{yy}(a,b) - [f_{xy}(a,b)^2] \\[0.3cm]
+Min:	D > 0 and f_{xx}(a,b) > 0 \\[0.3cm]
+Max:	D > 0 and f_{xx}(a,b) < 0 \\[0.3cm]
+Saddle: D < 0 \\[0.3cm]
+Inconclusive: D = 0
+
 $$
 </td>
 </tr>
