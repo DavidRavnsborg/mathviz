@@ -156,8 +156,8 @@ $$
 
 $$
 m = \int \int_A p(x,y)dA \\[0.3cm]
-\bar{x} = M_x/m = \dfrac{1}{m} \int \int_A yp(x,y)dA \\[0.3cm]
-\bar{y} = M_y/m = \dfrac{1}{m} \int \int_A xp(x,y)dA \\[0.3cm]
+\bar{x} = M_y/m = \dfrac{1}{m} \int \int_D xp(x,y)dA \\[0.3cm]
+\bar{y} = M_x/m = \dfrac{1}{m} \int \int_D yp(x,y)dA \\[0.3cm]
 $$
 </td>
 </tr>
