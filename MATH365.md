@@ -143,6 +143,13 @@ Inconclusive: D = 0
 
 $$
 </td>
+<td style="vertical-align: top;">
+
+$$
+dA = dxdy = rdrdθ \\[0.3cm]
+dV = dxdydz = rdrdθdz = p^2sin(φ)dpdθdφ
+$$
+</td>
 </tr>
 </table>
 
