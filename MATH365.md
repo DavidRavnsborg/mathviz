@@ -84,7 +84,7 @@ $$
 <td style="vertical-align: top;">
 
 $$
-\int u \, dv = uv \Big|_a^b - \int v \, du
+\int_a^b u \, dv = uv \Big|_a^b - \int_a^b v \, du
 $$
 </td>
 <td style="vertical-align: top;">
