@@ -147,7 +147,9 @@ $$
 
 $$
 dA = dxdy = rdrdθ \\[0.3cm]
-dV = dxdydz = rdrdθdz = p^2sin(φ)dpdθdφ
+dV = dxdydz = rdrdθdz = p^2sin(φ)dpdθdφ \\[0.3cm]
+r = \sqrt{x^2 + y^2) \\[0.3cm]
+θ = arctan(y/x)
 $$
 </td>
 </tr>
