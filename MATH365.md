@@ -152,6 +152,14 @@ r = \sqrt{x^2 + y^2} \\[0.3cm]
 θ = arctan(y/x)
 $$
 </td>
+<td style="vertical-align: top;">
+
+$$
+m = \int \int_A p(x,y)dA \\[0.3cm]
+\bar{x} = M_x/m = \dfrac{1}{m} \int \int_A yp(x,y)dA \\[0.3cm]
+\bar{y} = M_y/m = \dfrac{1}{m} \int \int_A xp(x,y)dA \\[0.3cm]
+$$
+</td>
 </tr>
 </table>
 
