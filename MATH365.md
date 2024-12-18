@@ -120,7 +120,7 @@ $$
 <td style="vertical-align: top;">
 
 $$
-A = \int_{α}^{β} y(t)x'(t) dt = \int_{a}^{b} y dx = \int_{A}^{B} \dfrac{1}{2}r^2 dθ \\[0.3cm]
+A = \int_{α}^{β} y(t)x'(t) dt = \int_{a}^{b} y dx = \int_{A}^{B} \dfrac{1}{2}r^2 dθ = \int \int_D \sqrt{1 + f_x^2 + f_y^2}dA \\[0.3cm] 
 
 \dfrac{d^2y}{dx^2} = \dfrac{d}{dx} \left(\dfrac{dy}{dx} \right) = \dfrac{\dfrac{d}{dt} \left(\dfrac{dy}{dx} \right)}{\dfrac{dx}{dt}} \\[0.3cm]
 a = -\dfrac{GMm}{r^3}r = -\dfrac{GMm}{r^2}u
@@ -156,7 +156,7 @@ $$
 
 $$
 m = \int \int_A p(x,y)dA \\[0.3cm]
-\bar{x} = M_y/m = \dfrac{1}{m} \int \int_D xp(x,y)dA \\[0.3cm]
+\bar{x} = M_y/m = \dfrac{1}{m} \int \int_D xp(x,yx  )dA \\[0.3cm]
 \bar{y} = M_x/m = \dfrac{1}{m} \int \int_D yp(x,y)dA \\[0.3cm]
 $$
 </td>
