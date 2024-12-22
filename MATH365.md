@@ -115,10 +115,6 @@ T(t) = \dfrac{r'(t)}{\left\Vert r'(t) \right\Vert} \hspace{5pt} K = \left\Vert T
 
 N(t) = \dfrac{T'(t)}{\Vert T'(t) \Vert} \hspace{5pt} B(t) = T(t) \times N(t) \hspace{5pt} h_{max} = \dfrac{v_0^2}{2g} = -\dfrac{g}{2}t^2+v_0t+h_0\\[0.3cm]
 
-% \begin{aligned}
-\int_C \blueE{\textbf{F}} \cdot \redE{d\textbf{r}} = \int_a^b f(x)dx + f(y)dy = \int_a^b F(r(t)) \cdot r'(t)dt
-% \end{aligned}
-
 $$
 </td>
 <td style="vertical-align: top;">
@@ -133,7 +129,7 @@ $$
 </tr>
 </table>
 
-<h4 style="margin: 0;">Second Derivative Test</h4>
+<h4 style="margin: 0;">Sections 4/5</h4>
 <table style="width: 100%; text-align: left;">
 <tr style="text-align: left;">
 <td style="vertical-align: top;">
@@ -171,6 +167,20 @@ $$
 m = \int \int_A p(x,y)dA \\[0.3cm]
 \bar{x} = M_y/m = \dfrac{1}{m} \int \int_D xp(x,yx  )dA \\[0.3cm]
 \bar{y} = M_x/m = \dfrac{1}{m} \int \int_D yp(x,y)dA \\[0.3cm]
+$$
+</td>
+</tr>
+</table>
+
+<h4 style="margin: 0;">Section 6</h4>
+<table style="width: 100%; text-align: left;">
+<tr style="text-align: left;">
+<td style="vertical-align: top;">
+
+$$
+% \begin{aligned}
+\int_C \blueE{\textbf{F}} \cdot \redE{d\textbf{r}} = \int_a^b f(x)dx + f(y)dy = \int_a^b F(r(t)) \cdot r'(t)dt
+% \end{aligned}
 $$
 </td>
 </tr>
