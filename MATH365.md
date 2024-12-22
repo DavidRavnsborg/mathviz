@@ -155,7 +155,10 @@ $$
 dA = dxdy = rdrdθ \\[0.3cm]
 dV = dxdydz = rdrdθdz = p^2sin(φ)dpdθdφ \\[0.3cm]
 r = \sqrt{x^2 + y^2} \\[0.3cm]
-θ = arctan(y/x)
+θ = arctan(y/x) \\[0.3cm]
+x = rcos(θ) = psin(φ)cos(θ) \\[0.3cm]
+y = rsin(θ) = psin(φ)sin(θ) \\[0.3cm]
+z = pcos(φ)
 $$
 </td>
 <td style="vertical-align: top;">
