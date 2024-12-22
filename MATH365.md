@@ -179,8 +179,9 @@ $$
 
 $$
 % \begin{aligned}
-\int_C \blueE{\textbf{F}} \cdot \redE{d\textbf{r}} = \int_a^b f(x)dx + f(y)dy = \int_a^b F(r(t)) \cdot r'(t)dt
+\int_C \blueE{\textbf{F}} \cdot \redE{d\textbf{r}} = \int_a^b f(x)dx + f(y)dy = \int_a^b F(r(t)) \cdot r'(t)dt \\[0.3cm]
 % \end{aligned}
+∫_C Pdx + Qdy = ∫_D \dfrac{∂Q}{∂x} − \dfrac{∂P}{∂y}dA,
 $$
 </td>
 </tr>
