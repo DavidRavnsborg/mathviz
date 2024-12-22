@@ -139,8 +139,14 @@ D(a,b) = f_{xx}(a,b)f_{yy}(a,b) - [f_{xy}(a,b)^2] \\[0.3cm]
 Min:	D > 0 and f_{xx}(a,b) > 0 \\[0.3cm]
 Max:	D > 0 and f_{xx}(a,b) < 0 \\[0.3cm]
 Saddle: D < 0 \\[0.3cm]
-Inconclusive: D = 0
+Inconclusive: D = 0 \\[0.3cm]
 
+J = \left|
+\begin{array}{ccccccc}
+∂x/∂s&∂x/∂t\\
+∂y/∂s&∂y/∂t\\
+\end{array}
+\right|
 $$
 </td>
 <td style="vertical-align: top;">
