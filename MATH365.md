@@ -195,6 +195,11 @@ $$
 ∇F_{xz} = \dfrac{∂}{∂z}\dfrac{∂f}{∂x} = \dfrac{∂}{∂z}\dfrac{∂f}{∂x} = ∇F_{zx} \\[0.3cm]
 ∇F_{yz} = \dfrac{∂}{∂z}\dfrac{∂f}{∂y} = \dfrac{∂}{∂y}\dfrac{∂f}{∂z} = ∇F_{zy} \\[0.3cm]
 $$
+Fundamental Theorem of Line Integrals
+
+$$
+∫_a^b F \cdot dr = ∫_a^b ∇f(r(t))r'(t)dt = f(r(b)) - f(r(a))
+$$
 </td>
 </tr>
 </table>
