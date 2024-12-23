@@ -187,6 +187,13 @@ r(t) = (1 - t)r_0 + tr_1 \\[0.3cm]
 ∫_C Pdx + Qdy = ∫_D \dfrac{∂Q}{∂x} − \dfrac{∂P}{∂y}dA \\[0.3cm]
 $$
 </td>
+<td style="vertical-align: top;">
+Conservative vector field test
+
+$$
+∇F_{xy} = \dfrac{∂}{∂y}\dfrac{∂f}{∂x} = \dfrac{∂}{∂y}\dfrac{∂f}{∂x} = ∇F_{yx} \\[0.3cm]
+∇F_{xz} = \dfrac{∂}{∂z}\dfrac{∂f}{∂x} = \dfrac{∂}{∂z}\dfrac{∂f}{∂x} = ∇F_{zx} \\[0.3cm]
+∇F_{yz} = \dfrac{∂}{∂z}\dfrac{∂f}{∂y} = \dfrac{∂}{∂y}\dfrac{∂f}{∂z} = ∇F_{zy} \\[0.3cm]
 $$
 </td>
 </tr>
