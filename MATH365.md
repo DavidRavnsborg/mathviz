@@ -174,6 +174,15 @@ $$
 
 <h4 style="margin: 0;">Section 6</h4>
 <table style="width: 100%; text-align: left;">
+<tr>
+
+$$
+% Line integral formula of the vector field along the curve
+∫_C \mathbf{F} \cdot d\mathbf{r} = \int_a^b \mathbf{F}(r(t)) \cdot \mathbf{r}'(t) \, dt = 
+% Expanded version of the dot product within the integral
+∫_a^b \begin{pmatrix} P(x(t), y(t)) \\ Q(x(t), y(t)) \end{pmatrix} \cdot \begin{pmatrix} x'(t) \\ y'(t) \end{pmatrix} dt = \int_a^b P(x(t), y(t)) x'(t) + Q(x(t), y(t)) y'(t) dt
+$$
+</tr>
 <tr style="text-align: left;">
 <td style="vertical-align: top;">
 
