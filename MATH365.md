@@ -181,7 +181,12 @@ $$
 % \begin{aligned}
 \int_C \blueE{\textbf{F}} \cdot \redE{d\textbf{r}} = \int_a^b f(x)dx + f(y)dy = \int_a^b F(r(t)) \cdot r'(t)dt \\[0.3cm]
 % \end{aligned}
-∫_C Pdx + Qdy = ∫_D \dfrac{∂Q}{∂x} − \dfrac{∂P}{∂y}dA,
+∫_C f(x,y)dx = ∫_a^b f(x(t), y(t))x'(t)dt \\[0.3cm]
+∫_C f(x,y)dy = ∫_a^b f(x(t), y(t))y'(t)dt \\[0.3cm]
+r(t) = (1 - t)r_0 + tr_1 \\[0.3cm]
+∫_C Pdx + Qdy = ∫_D \dfrac{∂Q}{∂x} − \dfrac{∂P}{∂y}dA \\[0.3cm]
+$$
+</td>
 $$
 </td>
 </tr>
