@@ -200,17 +200,54 @@ r(t) = (1 - t)r_0 + tr_1 \\[0.3cm]
 $$
 </td>
 <td style="vertical-align: top;">
-Conservative vector field test (Clairaut's Theorem)
 
 $$
-∇F_{xy} = \dfrac{∂}{∂y}\dfrac{∂f}{∂x} = \dfrac{∂}{∂y}\dfrac{∂f}{∂x} = ∇F_{yx} \\[0.3cm]
-∇F_{xz} = \dfrac{∂}{∂z}\dfrac{∂f}{∂x} = \dfrac{∂}{∂z}\dfrac{∂f}{∂x} = ∇F_{zx} \\[0.3cm]
-∇F_{yz} = \dfrac{∂}{∂z}\dfrac{∂f}{∂y} = \dfrac{∂}{∂y}\dfrac{∂f}{∂z} = ∇F_{zy} \\[0.3cm]
+\text{Clairaut's Theorem: } f_{xy}(a,b) = f_{yx}(a,b) \\[0.3cm]
+\text{Consequences of theorem} \\[0.3cm]
+\text{curl} \, \mathbf{F} = \mathbf{0} \\[0.3cm]
+\text{div} \hspace{2pt} \text{curl} \mathbf{F} = 0 \\[0.3cm]
+\text{Conservative vector field test} \\[0.3cm]
+∇f_{xy} = \dfrac{∂}{∂y}\dfrac{∂f}{∂x} = \dfrac{∂}{∂y}\dfrac{∂f}{∂x} = ∇f_{yx} \\[0.3cm]
+∇f_{xz} = \dfrac{∂}{∂z}\dfrac{∂f}{∂x} = \dfrac{∂}{∂z}\dfrac{∂f}{∂x} = ∇f_{zx} \\[0.3cm]
+∇f_{yz} = \dfrac{∂}{∂z}\dfrac{∂f}{∂y} = \dfrac{∂}{∂y}\dfrac{∂f}{∂z} = ∇f_{zy} \\[0.3cm]
+
+
 $$
 Fundamental Theorem of Line Integrals
 
 $$
 ∫_a^b F \cdot dr = ∫_a^b ∇f(r(t))r'(t)dt = f(r(b)) - f(r(a))
+$$
+</td>
+</tr>
+</table>
+
+<table style="width: 100%; text-align: left;">
+<tr>
+<td style="vertical-align: top;">
+
+$$
+% Curl
+\text{curl} \, \mathbf{F} = \nabla \times \mathbf{F} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+F_x & F_y & F_z
+\end{vmatrix} = 
+\left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) \mathbf{i} - \left( \frac{\partial F_z}{\partial x} - \frac{\partial F_x}{\partial z} \right) \mathbf{j} + \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) \mathbf{k} \\[0.3cm]
+\text{curl} f \mathbf{F} = \nabla f \times \mathbf{F} + f \text{curl} \mathbf{F} \hspace{15pt}
+% Divergence
+\text{div} \, \mathbf{F} = \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z} \\[0.3cm]
+\text{Vector Forms of Green's Theorem (curl and div): } 
+\oint_{C} \mathbf{F} \cdot d\mathbf{r} = \int \int_{D} (\nabla \times \mathbf{F}) \cdot \mathbf{k} \, dA \hspace{15pt}
+\oint_{C} \mathbf{F} \cdot d\mathbf{r} = \int \int_{D} (\nabla \cdot \mathbf{F}) \, dA \\[0.3cm]
+% Tangent plane
+\text{Let} \, \mathbf{r}(u, v) = \begin{pmatrix} x(u, v) \\ y(u, v) \\ z(u, v) \end{pmatrix} \text{be a parameterization of the surface.} \hspace{5pt}
+\mathbf{r}_u = \frac{\partial \mathbf{r}}{\partial u} = \begin{pmatrix} \frac{\partial x}{\partial u} \\ \frac{\partial y}{\partial u} \\ \frac{\partial z}{\partial u} \end{pmatrix},
+
+\mathbf{r}_v = \frac{\partial \mathbf{r}}{\partial v} = \begin{pmatrix} \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial v} \\ \frac{\partial z}{\partial v} \end{pmatrix}. \hspace{5pt} n = r_u \times r_v \\[0.3cm]
+
+A(S) = ∫∫_D |r_u \times r_v|dA \\[0.3cm]
+
 $$
 </td>
 </tr>
