@@ -152,8 +152,9 @@ $$
 <td style="vertical-align: top;">
 
 $$
-dA = dxdy = rdrdθ \\[0.3cm]
+dA = dxdy = rdrdθ\\[0.3cm]
 dV = dxdydz = rdrdθdz = p^2sin(φ)dpdθdφ \\[0.3cm]
+dS = \sqrt{1 + z_x^2 + z_y^2}dxdy \\[0.3cm]
 r = \sqrt{x^2 + y^2} \\[0.3cm]
 θ = arctan(y/x) \\[0.3cm]
 x = rcos(θ) = psin(φ)cos(θ) \\[0.3cm]
