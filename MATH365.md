@@ -247,6 +247,8 @@ F_x & F_y & F_z
 \mathbf{r}_v = \frac{\partial \mathbf{r}}{\partial v} = \begin{pmatrix} \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial v} \\ \frac{\partial z}{\partial v} \end{pmatrix}. \hspace{5pt} n = r_u \times r_v \\[0.3cm]
 
 A(S) = ∫∫_D |r_u \times r_v|dA \\[0.3cm]
+% Surface normal
+n = \dfrac{\nabla f}{||\nabla f ||} \text{ if f is a surface; if f is a curve, use Frenet-Serret formulas}
 
 $$
 </td>
