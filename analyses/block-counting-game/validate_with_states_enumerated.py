@@ -14,12 +14,12 @@ def unique_permutations(iterable):
             yield perm
 
 
-def game_states(c, n, k, h, colors=None):
+def game_states(c, n, k, h, colours=None):
     """
-    Computes the number of valid game states (or thecolors
+    Computes the number of valid game states (or thecolours
       list of states if requested)
     for a sorting game with:
-      c = number of colors
+      c = number of colours
       n = blocks per color (and tower height)
       k = number of towers (each tower has a capacity of n)
 
@@ -31,10 +31,12 @@ def game_states(c, n, k, h, colors=None):
     If list_combinations is False (default), the function returns just the count.
     If list_combinations is True, it returns a sorted list of configuration strings.
     """
-    # Use default colors if not provided (e.g. "R", "B", "G", …)
-    if colors is None:
-        default_colors = "RBGYOPC"
-        colors = list(default_colors[:c])
+    # Use default colours if not provided (e.g. "R", "B", "G", …)
+
+    default_colours = "RBGYOPC"
+    if c > len(default_colours) is None:
+        raise Exception("Need to extend default_colours list to support more colours.")
+    colours = list(default_colours[:c])
 
     total_blocks = c * n
 
@@ -49,7 +51,7 @@ def game_states(c, n, k, h, colors=None):
     # With c=2, n=2, k=3, direct enumeration shows there are 6 valid distributions.
 
     # Step 2: Compute the number of assignments for each distribution.
-    # Regardless of distribution, the number of ways to assign the colors to the
+    # Regardless of distribution, the number of ways to assign the colours to the
     # occupied positions is given by the multinomial:
     #   (c*n)! / (n!)^c
     count_assignments = math.factorial(total_blocks)
@@ -60,7 +62,7 @@ def game_states(c, n, k, h, colors=None):
     #
     # Prepare the multiset of blocks: each color appears n times.
     blocks = []
-    for color in colors:
+    for color in colours:
         blocks.extend([color] * n)
     # Generate all unique permutations (each is a tuple of length total_blocks).
     unique_assignments = list(unique_permutations(blocks))
@@ -81,7 +83,6 @@ def game_states(c, n, k, h, colors=None):
                 config_parts.append(tower_str)
                 index += height
             config_list.append("|".join(config_parts))
-
     config_list.sort()
 
     total_count = len(distributions) * count_assignments
