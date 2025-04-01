@@ -49,7 +49,9 @@ def victory_states(config_list, colours, n):
     return victory_list
 
 
-def game_states(c, n, k, h, colours=None):
+def game_states(
+    c, n, k, h, enforce_tower_count_floor=True, enforce_tower_height_floor=True
+):
     """
     Computes the number of valid game states (or thecolours
       list of states if requested)
@@ -66,8 +68,13 @@ def game_states(c, n, k, h, colours=None):
     If list_combinations is False (default), the function returns just the count.
     If list_combinations is True, it returns a sorted list of configuration strings.
     """
-    # Use default colours if not provided (e.g. "R", "B", "G", …)
 
+    if enforce_tower_count_floor:
+        assert k >= c + 1
+    if enforce_tower_height_floor:
+        assert h >= n
+
+    # Use default colours if not provided (e.g. "R", "B", "G", …)
     default_colours = "RBGYOPC"
     if c > len(default_colours) is None:
         raise Exception("Need to extend default_colours list to support more colours.")
