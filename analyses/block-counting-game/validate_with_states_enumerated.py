@@ -1,4 +1,5 @@
 import argparse
+import json
 import math
 import itertools
 
@@ -146,112 +147,17 @@ if __name__ == "__main__":
     args = parser.parse_args()
     list_combinations = args.print_list
 
-    states, count, victory_list = game_states(c=1, n=10, k=2, h=10)
-    print(
-        f"c=1, n=10, k=2, h=10; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
+    with open("analyses/block-counting-game/test_cases.json") as json_file:
+        test_cases = json.load(json_file)
 
-    states, count, victory_list = game_states(c=2, n=2, k=3, h=2)
-    print(
-        f"c=2, n=2, k=3, h=2; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
-
-    states, count, victory_list = game_states(c=3, n=1, k=4, h=2)
-    print(
-        f"c=3, n=1, k=4, h=2; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
-
-    states, count, victory_list = game_states(c=3, n=2, k=4, h=2)
-    print(
-        f"c=3, n=2, k=4, h=2; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
-
-    states, count, victory_list = game_states(c=3, n=2, k=4, h=3)
-    print(
-        f"c=3, n=2, k=4, h=3; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
-
-    states, count, victory_list = game_states(c=3, n=1, k=5, h=2)
-    print(
-        f"c=3, n=1, k=5, h=2; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
-
-    states, count, victory_list = game_states(c=3, n=2, k=5, h=2)
-    print(
-        f"c=3, n=2, k=5, h=2; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
-
-    states, count, victory_list = game_states(c=3, n=2, k=5, h=3)
-    print(
-        f"c=3, n=2, k=5, h=3; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
-
-    states, count, victory_list = game_states(c=4, n=1, k=5, h=2)
-    print(
-        f"c=4, n=1, k=5, h=2; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
-
-    states, count, victory_list = game_states(c=4, n=2, k=5, h=2)
-    print(
-        f"c=4, n=2, k=5, h=2; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
-    )
-    assert len(states) == count
-    assert len(states) == len(set(states))
-    if list_combinations:
-        print("Configurations:")
-        for state in states:
-            print(state)
+    for case in test_cases:
+        states, count, victory_list = game_states(**case)
+        print(
+            f"{case}; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
+        )
+        assert len(states) == count
+        assert len(states) == len(set(states))
+        if list_combinations:
+            print("Configurations:")
+            for state in states:
+                print(state)
