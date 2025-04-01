@@ -1,3 +1,4 @@
+import argparse
 import math
 import itertools
 
@@ -128,7 +129,15 @@ def game_states(c, n, k, h, colours=None):
 
 # Example usage:
 if __name__ == "__main__":
-    list_combinations = False
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--print_list",
+        default=False,
+        action="store_true",
+        help="Print out list of states (warning: may flood terminal)",
+    )
+    args = parser.parse_args()
+    list_combinations = args.print_list
 
     states, count, victory_list = game_states(c=1, n=10, k=2, h=10)
     print(
