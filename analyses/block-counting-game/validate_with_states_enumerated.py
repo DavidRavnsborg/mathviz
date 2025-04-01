@@ -139,6 +139,30 @@ def game_states(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
+        "-C",
+        nargs="?",
+        type=int,
+        help="Filter test cases by values of c (colour).",
+    )
+    parser.add_argument(
+        "-N",
+        nargs="?",
+        type=int,
+        help="Filter test cases by values of n (blocks per colour).",
+    )
+    parser.add_argument(
+        "-K",
+        nargs="?",
+        type=int,
+        help="Filter test cases by values of k (number of towers).",
+    )
+    parser.add_argument(
+        "-H",
+        nargs="?",
+        type=int,
+        help="Filter test cases by values of h (max tower height).",
+    )
+    parser.add_argument(
         "--print_list",
         default=False,
         action="store_true",
@@ -151,6 +175,14 @@ if __name__ == "__main__":
         test_cases = json.load(json_file)
 
     for case in test_cases:
+        if args.C is not None and args.C != case["c"]:
+            continue
+        elif args.N is not None and args.N != case["n"]:
+            continue
+        elif args.K is not None and args.K != case["k"]:
+            continue
+        elif args.H is not None and args.H != case["h"]:
+            continue
         states, count, victory_list = game_states(**case)
         print(
             f"{case}; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
