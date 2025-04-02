@@ -51,7 +51,12 @@ def victory_states(config_list, colours, n):
 
 
 def game_states(
-    c, n, k, h, enforce_tower_count_floor=True, enforce_tower_height_floor=True
+    c: int,
+    n: int,
+    k: int,
+    h: int,
+    enforce_tower_count_floor=True,
+    enforce_tower_height_floor=True,
 ):
     """
     Computes the number of valid game states (or thecolours
@@ -135,6 +140,19 @@ def game_states(
     return config_list, total_count, victory_list
 
 
+def analyze_game(case: dict, print_list: bool):
+    states, count, victory_list = game_states(**case)
+    print(
+        f"{case}; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
+    )
+    assert len(states) == count
+    assert len(states) == len(set(states))
+    if print_list:
+        print("Configurations:")
+        for state in states:
+            print(state)
+
+
 # Example usage:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -169,27 +187,28 @@ if __name__ == "__main__":
         help="Print out list of states (warning: may flood terminal)",
     )
     args = parser.parse_args()
-    list_combinations = args.print_list
 
-    with open("analyses/block-counting-game/test_cases.json") as json_file:
-        test_cases = json.load(json_file)
-
-    for case in test_cases:
-        if args.C is not None and args.C != case["c"]:
-            continue
-        elif args.N is not None and args.N != case["n"]:
-            continue
-        elif args.K is not None and args.K != case["k"]:
-            continue
-        elif args.H is not None and args.H != case["h"]:
-            continue
-        states, count, victory_list = game_states(**case)
-        print(
-            f"{case}; State count: {len(states)}; Victory state count: {len(victory_list)}; Permissible starting states: {len(states) - len(victory_list)} "
+    if args.C and args.N and args.K and args.H:
+        analyze_game(
+            {
+                "c": args.C,
+                "n": args.N,
+                "k": args.K,
+                "h": args.H,
+            },
+            args.print_list,
         )
-        assert len(states) == count
-        assert len(states) == len(set(states))
-        if list_combinations:
-            print("Configurations:")
-            for state in states:
-                print(state)
+    else:
+        with open("analyses/block-counting-game/test_cases.json") as json_file:
+            test_cases = json.load(json_file)
+
+        for case in test_cases:
+            if args.C is not None and args.C != case["c"]:
+                continue
+            elif args.N is not None and args.N != case["n"]:
+                continue
+            elif args.K is not None and args.K != case["k"]:
+                continue
+            elif args.H is not None and args.H != case["h"]:
+                continue
+            analyze_game(case, args.print_list)
