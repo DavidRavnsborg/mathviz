@@ -3,7 +3,7 @@ import math
 
 def count_game_state(c, n, k, h):
     """
-    Compute the total number of game state permutations.
+    Compute the total number of game state permutations. Very fast and efficient.
 
     Parameters:
       c (int): number of colors.
@@ -69,3 +69,5 @@ if __name__ == "__main__":
     print("For c=4, n=1, k=5, h=2, the number of permutations is:", result)
     result = count_game_state(c=4, n=2, k=5, h=2)
     print("For c=4, n=2, k=5, h=2, the number of permutations is:", result)
+    result = count_game_state(c=4, n=3, k=5, h=3)
+    print("For c=4, n=3, k=5, h=3, the number of permutations is:", result)
